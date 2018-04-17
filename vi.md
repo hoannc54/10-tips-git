@@ -38,9 +38,9 @@ my_db_config/
 !main.pyc
 ```
 
-##3. Who Messed With My Code?
+##3. Ai đã làm hỏng code của tôi?
 
-Đó là bản năng tự nhiên của con người để đổ lỗi cho người khác khi có điều gì đó không ổn. Nếu máy chủ sản xuất của bạn bị hỏng, rất dễ để tìm ra thủ phạm - chỉ cần thực hiện ```git blame```.Câu lệnh này sẽ cho bạn thấy tác giả của mỗi dòng trong 1 file, commit thực hiện thay đổi cuối cùng của dòng đó, và mốc thời gian của commit. 
+Đó là bản năng tự nhiên của con người để đổ lỗi cho người khác khi có điều gì đó không ổn. Nếu máy chủ sản phẩm của bạn bị hỏng, rất dễ để tìm ra thủ phạm - chỉ cần thực hiện ```git blame```.Câu lệnh này sẽ cho bạn thấy tác giả của mỗi dòng trong 1 file, commit thực hiện thay đổi cuối cùng của dòng đó, và mốc thời gian của commit. 
 
 ```
 git blame [file_name]
@@ -57,9 +57,9 @@ Và trong ảnh chụp màn hình bên dưới, bạn có thể thấy lệnh n�
 
 Chúng tôi đã xem xét việc sử dụng ```git log``` trong một hướng dẫn trước đây, tuy nhiên, có ba lựa chọn mà bạn nên biết.
 
-* ```--oneline``` – Nén thông tin hiển thị bên cạnh mỗi cam kết với một cam kết giảm bớt và thông báo cam kết, tất cả được hiển thị trong một dòng đơn.
+* ```--oneline``` – Nén thông tin hiển thị bên cạnh mỗi commit đẻ giảm bớt commit và thông báo commit, tất cả được hiển thị trong một dòng đơn.
 * ```--graph``` – Tùy chọn này rút ra một biểu diễn đồ họa dựa trên văn bản của lịch sử ở phía bên tay trái của đầu ra. Không sử dụng nếu bạn đang xem lịch sử cho một nhánh.
-* ```--all``` – Cho thấy lịch sử của tất cả các chi nhánh.
+* ```--all``` – Cho thấy lịch sử của tất cả các nhánh.
 
 Dưới đây là những gì kết hợp các tùy chọn như sau:
 
@@ -145,7 +145,7 @@ Sau đó bạn được yêu cầu cung cấp thông báo commit cho commit mớ
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946457git-ninja-11.png)
 
-##8. Stash Uncommitted Changes
+##8. Stash các thay đổi chưa được commit
 
 Hãy nói rằng bạn đang làm việc với một lỗi nhất định và một tính năng, và bạn đột nhiên được yêu cầu mô tả công việc của bạn. Công việc hiện tại chưa đủ hoàn thành commit, 
 và bạn không thể đưa ra một mô tả ở giai đoạn này (mà không cần trở lại các thay đổi). Trong trường hợp như vậy, ```git stash``` nó sẽ giải cứu bạn. Stash cơ bản thực hiện tất cả các thay đổi của bạn và lưu giữ chúng để sử dụng tiếp.
@@ -167,7 +167,7 @@ git stash list
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946458git-ninja-12.png)
 
-Nếu bạn muốn bỏ cất và khôi phục nhưng thay đổi những thay đổi chưa commit, bạn gọi stash:
+Nếu bạn muốn bỏ stash và khôi phục nhưng thay đổi những thay đổi chưa commit, bạn gọi stash:
 
 ```
 
@@ -208,13 +208,13 @@ git fsck --lost-found
 
 Tôi đã lưu lại các câu lệnh Git thanh lịch nhất cuối cùng. Các câu lệnh ```cherry-pick``` là do lệnh Git yêu thích của tôi, vì ý nghĩa nghĩa đen cũng như tiện ích của nó!
 
-Với những giới hạn đơn giản nhất, ```cherry-pick``` sẽ chọn 1 commit đơn lẻ từ các nhánh khác nhau và hợp chúng với cái hiện tại. Nếu bạn đang làm việc theo cách song sóng trên 2 hay nhiều hơn nhánh, bạn có thể chú ý 1 lỗi mà xuất hiện ở tất cả các nhánh. Nếu bạn giải quyết nó trong 1, bạn có thể cherry pick commit đến cácnhánh khác, mà không làm rỗi loạn với các file hay commit khác
+Với những giới hạn đơn giản nhất, ```cherry-pick``` sẽ chọn 1 commit đơn lẻ từ các nhánh khác nhau và hợp chúng với cái hiện tại. Nếu bạn đang làm việc theo cách song sóng trên 2 hay nhiều hơn nhánh, bạn có thể chú ý 1 lỗi mà xuất hiện ở tất cả các nhánh. Nếu bạn giải quyết nó trong 1, bạn có thể cherry pick commit đến các nhánh khác, mà không làm rỗi loạn với các file hay commit khác
 
 Hãy hình dung 1 kịch bản khi bạn có thể gọi nó. Tôi có 2 nhánh và tôi muốn```cherry-pick``` các commit ```b20fd14: Cleaned junk``` vào một cái khác.
 
 ![ahihi](https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/06/1402946465git-ninja-15.png)
 
-Tôi chuyển sang chi nhánh mà tôi muốn ```cherry-pick``` các commit, và chạy như sau:
+Tôi chuyển sang nhánh mà tôi muốn ```cherry-pick``` các commit, và chạy như sau:
 
 ```
 
